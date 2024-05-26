@@ -1,0 +1,26 @@
+{
+    "SRR26229726": {
+        "name": "BE2-shMETTL14-2-input"
+    },
+    "SRR26229727": {
+        "name": "BE2-shMETTL14-1-input"
+    },
+    "SRR26229728": {
+        "name": "BE2-shMETTL14-2-IP"
+    },
+    "SRR26229729": {
+        "name": "BE2-shMETTL14-1-IP"
+    },
+    "SRR26229730": {
+        "name": "BE2-shNC-2-input"
+    },
+    "SRR26229731": {
+        "name": "BE2-shNC-1-input"
+    },
+    "SRR26229732": {
+        "name": "BE2-shNC-2-IP"
+    },
+    "SRR26229733": {
+        "name": "BE2-shNC-1-IP"
+    }
+}

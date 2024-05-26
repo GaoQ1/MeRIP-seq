@@ -1,0 +1,1 @@
+cat SRR_Acc_List.txt | parallel -j $(wc -l < SRR_Acc_List.txt) prefetch --max-size 120G {}
