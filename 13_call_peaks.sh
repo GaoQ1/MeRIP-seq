@@ -35,10 +35,14 @@ for treat in "${treats[@]}"; do
 
     if [ -f ${split_dir}/${treat}.fwd.bam ] && [ -f ${split_dir}/${control}.fwd.bam ]; then
         echo "Calling peaks for ${treat} with control ${control}"
-        macs2 callpeak -t ${split_dir}/${treat}.fwd.bam -c ${split_dir}/${control}.fwd.bam -n ${treat}_fwd_peaks -f BAM --keep-dup 5 --verbose 3 --nomodel -g hs -q 0.01 -B --outdir ${peak_dir} 2> ${peak_dir}/${treat}_fwd_peaks.macs.out
         
-        macs2 callpeak -t ${split_dir}/${treat}.rev.bam -c ${split_dir}/${control}.rev.bam -n ${treat}_rev_peaks -f BAM --keep-dup 5 --verbose 3 --nomodel -g hs -q 0.01 -B --outdir ${peak_dir} 2> ${peak_dir}/${treat}_rev_peaks.macs.out
+        macs2 callpeak -t ${split_dir}/${treat}.fwd.bam -c ${split_dir}/${control}.fwd.bam -n ${treat}_fwd_peaks --bdg --SPMR --keep-dup 5 -q 0.01 -f BAM --verbose 3 --nomodel --extsize 150 -g 1.43e8 -B --outdir ${output_dir} 2> ${output_dir}/${treat}_fwd_peaks.macs.out
+        
+        macs2 callpeak -t ${split_dir}/${treat}.rev.bam -c ${split_dir}/${control}.rev.bam -n ${treat}_rev_peaks --bdg --SPMR --keep-dup 5 -q 0.01 -f BAM --verbose 3 --nomodel --extsize 150 -g 1.43e8 -B --outdir ${output_dir} 2> ${output_dir}/${treat}_rev_peaks.macs.out
     else
         echo "Missing files for ${treat} or ${control}" >> ${logfile}
     fi
+
+
+
 done
